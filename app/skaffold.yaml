@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/agmsb-k8s/kubecamp-app
+    buildpacks:
+      builder: "gcr.io/buildpacks/builder:v1"
+deploy:
+  kustomize:
+    paths: 
+      - config
+portForward:
+  - resourceType: service
+    resourceName: kubecamp-app
+    namespace: default
+    port: 80
+    localPort: 8080
+profiles:
+  - name: remote-build
+    build:
+      googleCloudBuild: {}
+  - name: prod
+    deploy:
+      kustomize:
+        paths:
+        - https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/overlays/prod
