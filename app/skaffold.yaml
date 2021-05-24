@@ -11,7 +11,7 @@ deploy:
       - config
 portForward:
   - resourceType: service
-    resourceName: kubecamp-app
+    resourceName: kubecamp-svc
     namespace: default
     port: 80
     localPort: 8080
