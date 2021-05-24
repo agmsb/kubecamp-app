@@ -1,0 +1,23 @@
+steps:
+- id: skaffold-render
+  name: "gcr.io/k8s-skaffold/skaffold:v1.23.0"
+  entrypoint: '/bin/bash'
+  args:
+    - '-c'
+    - |
+      export SKAFFOLD_TAG=${SHORT_SHA}
+      cd app
+      skaffold render -p prod --output ../resources.yaml
+  volumes:
+    - name: 'ssh'
+      path: /root/.ssh
+- id: candidate-branch
+  name: "gcr.io/agmsb-k8s/gcloud"
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      '/builder/configure_git.sh'
+  env:
+    - 'GCLOUD_PROJECT=agmsb-k8s'
+    - 'SHORT_SHA=${SHORT_SHA}'

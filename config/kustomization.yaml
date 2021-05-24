@@ -1,0 +1,6 @@
+bases:
+- https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/resources
+configMapGenerator:
+- name: fancy-features
+  literals:    
+  - ENABLE_FEATURE="the brand new feature everyone wants"
