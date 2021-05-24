@@ -33,3 +33,4 @@ TODO
 * Add IAM requirements.
 * Add specific instructions for customizing `configure_git.sh`. 
 * Add workflow diagram.
+* Use Cloud Build support for integration with Secret Manager, rather than hacking it together.
