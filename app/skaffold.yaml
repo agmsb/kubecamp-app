@@ -23,4 +23,4 @@ profiles:
     deploy:
       kustomize:
         paths:
-        - https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/overlays/prod
+        - https://github.com/agmsb/kubecamp-blueprints/team-a/overlays/prod

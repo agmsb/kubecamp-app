@@ -1,5 +1,5 @@
 bases:
-- https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/resources
+- https://github.com/agmsb/kubecamp-blueprints/team-a/resources
 configMapGenerator:
 - name: fancy-features
   literals:    
