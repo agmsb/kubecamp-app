@@ -9,8 +9,8 @@ steps:
       cd app
       skaffold render -p prod --output ../resources.yaml
   volumes:
-    - name: 'ssh'
-      path: /root/.ssh
+  - name: 'ssh'
+    path: /root/.ssh
 - id: candidate-branch
   name: "gcr.io/agmsb-k8s/gcloud"
   entrypoint: 'bash'
@@ -21,3 +21,6 @@ steps:
   env:
     - 'GCLOUD_PROJECT=agmsb-k8s'
     - 'SHORT_SHA=${SHORT_SHA}'
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
